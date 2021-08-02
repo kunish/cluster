@@ -1,0 +1,13 @@
+releases:
+  - name: metallb
+    namespace: metallb-system
+    chart: metallb/metallb
+    createNamespace: true
+    set:
+      - name: configInLine
+        value: |
+          address-pools:
+            - name: default
+              protocol: layer2
+              addresses:
+              - 10.10.50.0-10.10.50.255
