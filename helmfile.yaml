@@ -1,13 +1,18 @@
 releases:
   - name: metallb
-    namespace: metallb-system
     chart: metallb/metallb
+    namespace: metallb-system
     createNamespace: true
     set:
-      - name: configInLine
+      - name: configInline
         value: |
           address-pools:
             - name: default
               protocol: layer2
               addresses:
-              - 10.10.50.0-10.10.50.255
+                - 10.10.50.0-10.10.50.255
+
+  - name: traefik
+    chart: traefik/traefik
+    namespace: ingress-traefik
+    createNamespace: true
