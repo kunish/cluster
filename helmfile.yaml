@@ -3,6 +3,8 @@ repositories:
     url: https://charts.bitnami.com/bitnami
   - name: metallb
     url: https://metallb.github.io/metallb
+  - name: longhorn
+    url: https://charts.longhorn.io
   - name: traefik
     url: https://helm.traefik.io/traefik
   - name: prometheus-community
@@ -23,6 +25,11 @@ releases:
               protocol: layer2
               addresses:
                 - 10.10.50.0-10.10.50.255
+
+  - name: longhorn
+    chart: longhorn/longhorn
+    namespace: longhorn-system
+    createNamespace: true
 
   - name: traefik
     chart: traefik/traefik
