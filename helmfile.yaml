@@ -19,14 +19,8 @@ releases:
     chart: metallb/metallb
     namespace: metallb-system
     createNamespace: true
-    set:
-      - name: configInline
-        value: |
-          address-pools:
-            - name: default
-              protocol: layer2
-              addresses:
-                - 10.10.50.0-10.10.50.255
+    values:
+      - metallb/values.yml
 
   - name: longhorn
     chart: longhorn/longhorn
