@@ -1,3 +1,7 @@
+helmDefaults:
+  createNamespace: true
+  cleanupOnFail: true
+
 repositories:
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
@@ -24,43 +28,35 @@ releases:
   - name: metallb
     chart: metallb/metallb
     namespace: metallb-system
-    createNamespace: true
     values:
       - metallb/values.yml
 
   - name: longhorn
     chart: longhorn/longhorn
     namespace: longhorn-system
-    createNamespace: true
 
   - name: grafana
     chart: grafana/grafana
     namespace: grafana
-    createNamespace: true
 
   - name: prometheus
     chart: prometheus-community/prometheus
     namespace: prometheus
-    createNamespace: true
 
   - name: cert-manager
     chart: jetstack/cert-manager
     namespace: cert-manager
-    createNamespace: true
     values:
       - cert-manager/values.yml
 
   - name: external-dns
     chart: bitnami/external-dns
     namespace: external-dns
-    createNamespace: true
 
   - name: traefik
     chart: traefik/traefik
     namespace: ingress-traefik
-    createNamespace: true
 
   - name: argo-cd
     chart: argo/argo-cd
     namespace: argo
-    createNamespace: true
