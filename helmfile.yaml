@@ -7,6 +7,8 @@ repositories:
     url: https://metallb.github.io/metallb
   - name: longhorn
     url: https://charts.longhorn.io
+  - name: rancher
+    url: https://releases.rancher.com/server-charts/latest
   - name: traefik
     url: https://helm.traefik.io/traefik
   - name: grafana
@@ -45,6 +47,8 @@ releases:
     chart: jetstack/cert-manager
     namespace: cert-manager
     createNamespace: true
+    values:
+      - cert-manager/values.yml
 
   - name: external-dns
     chart: bitnami/external-dns
@@ -59,4 +63,9 @@ releases:
   - name: argo-cd
     chart: argo/argo-cd
     namespace: argo
+    createNamespace: true
+
+  - name: kubeapps
+    chart: bitnami/kubeapps
+    namespace: kubeapps
     createNamespace: true
