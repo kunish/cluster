@@ -9,6 +9,8 @@ repositories:
     url: https://charts.longhorn.io
   - name: traefik
     url: https://helm.traefik.io/traefik
+  - name: grafana
+    url: https://grafana.github.io/helm-charts
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
   - name: argo
@@ -27,6 +29,11 @@ releases:
   - name: longhorn
     chart: longhorn/longhorn
     namespace: longhorn-system
+    createNamespace: true
+
+  - name: grafana
+    chart: grafana/grafana
+    namespace: grafana
     createNamespace: true
 
   - name: prometheus
