@@ -64,8 +64,3 @@ releases:
     chart: argo/argo-cd
     namespace: argo
     createNamespace: true
-
-  - name: kubeapps
-    chart: bitnami/kubeapps
-    namespace: kubeapps
-    createNamespace: true
