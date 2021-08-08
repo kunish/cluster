@@ -29,6 +29,11 @@ releases:
     namespace: longhorn-system
     createNamespace: true
 
+  - name: prometheus
+    chart: prometheus-community/prometheus
+    namespace: prometheus
+    createNamespace: true
+
   - name: cert-manager
     chart: jetstack/cert-manager
     namespace: cert-manager
