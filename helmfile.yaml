@@ -26,29 +26,29 @@ repositories:
     url: https://charts.gitlab.io
 
 releases:
-  - name: metallb
-    chart: metallb/metallb
-    namespace: metallb-system
-    values:
-      - metallb/values.yml
-
   - name: longhorn
     chart: longhorn/longhorn
     namespace: longhorn-system
-
-  - name: grafana
-    chart: grafana/grafana
-    namespace: grafana
-
-  - name: prometheus
-    chart: prometheus-community/prometheus
-    namespace: prometheus
 
   - name: cert-manager
     chart: jetstack/cert-manager
     namespace: cert-manager
     values:
       - cert-manager/values.yml
+
+  - name: metallb
+    chart: metallb/metallb
+    namespace: metallb-system
+    values:
+      - metallb/values.yml
+
+  - name: prometheus
+    chart: prometheus-community/prometheus
+    namespace: prometheus
+
+  - name: grafana
+    chart: grafana/grafana
+    namespace: grafana
 
   - name: external-dns
     chart: bitnami/external-dns
