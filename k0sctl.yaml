@@ -45,3 +45,11 @@ spec:
         user: shikun
         keyPath: ~/.ssh/home_id_rsa
       role: worker
+
+  k0s:
+    config:
+      spec:
+        api:
+          externalAddress: 10.10.0.30
+          sans:
+            - 10.10.0.30
