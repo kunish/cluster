@@ -1,6 +1,7 @@
 helmDefaults:
   createNamespace: true
   cleanupOnFail: true
+  wait: true
 
 repositories:
   - name: bitnami
