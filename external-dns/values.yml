@@ -1,0 +1,4 @@
+provider: pdns
+pdns:
+  apiUrl: http://10.10.0.5
+  secretName: pdns-apikey
