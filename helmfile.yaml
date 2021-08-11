@@ -34,13 +34,13 @@ releases:
     chart: jetstack/cert-manager
     namespace: cert-manager
     values:
-      - cert-manager/values.yml
+      - helm/cert-manager/values.yml
 
   - name: metallb
     chart: metallb/metallb
     namespace: metallb-system
     values:
-      - metallb/values.yml
+      - helm/metallb/values.yml
 
   - name: prometheus
     chart: prometheus-community/prometheus
@@ -54,7 +54,7 @@ releases:
     chart: bitnami/external-dns
     namespace: external-dns
     values:
-      - external-dns/values.yml
+      - helm/external-dns/values.yml
 
   - name: ingress-nginx
     chart: ingress-nginx/ingress-nginx
@@ -68,4 +68,4 @@ releases:
     chart: rancher/rancher
     namespace: cattle-system
     values:
-      - rancher/values.yml
+      - helm/rancher/values.yml
