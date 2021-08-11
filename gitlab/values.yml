@@ -1,0 +1,7 @@
+global:
+  hosts:
+    domain: kuin.sh
+  ingress:
+    configureCertmanager: false
+certmanager:
+  install: false
