@@ -6,6 +6,7 @@ terraform {
   }
 
   backend "remote" {
+    organization = "kunish"
     workspaces {
       name = "cluster"
     }
