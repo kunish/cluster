@@ -1,4 +1,6 @@
 server:
+  extraArgs:
+    - --insecure
   ingress:
     enabled: true
     hosts:
