@@ -34,3 +34,5 @@ override.tf.json
 terraform.rc
 
 *.secret.yml
+
+!variables.auto.tfvars
