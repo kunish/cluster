@@ -4,4 +4,4 @@ server:
   ingress:
     enabled: true
     hosts:
-      - argo-cd.kuin.sh
+      - argo-cd.cluster.kuin.sh

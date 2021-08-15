@@ -1,6 +1,6 @@
 global:
   hosts:
-    domain: kuin.sh
+    domain: cluster.kuin.sh
   ingress:
     configureCertmanager: false
 certmanager:

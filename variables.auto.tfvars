@@ -27,6 +27,13 @@ releases = {
     create_namespace = true
     values           = ["helm/external-dns/values.yml"]
   }
+  "cert-manager" = {
+    repository       = "https://charts.jetstack.io"
+    chart            = "cert-manager"
+    namespace        = "cert-manager"
+    create_namespace = true
+    values           = ["helm/cert-manager/values.yml"]
+  }
   "prometheus" = {
     repository       = "https://prometheus-community.github.io/helm-charts"
     chart            = "prometheus"
@@ -40,5 +47,12 @@ releases = {
     namespace        = "argo-cd"
     create_namespace = true
     values           = ["helm/argo-cd/values.yml"]
+  }
+  "rancher" = {
+    repository       = "https://releases.rancher.com/server-charts/latest"
+    chart            = "rancher"
+    namespace        = "cattle-system"
+    create_namespace = true
+    values           = ["helm/rancher/values.yml"]
   }
 }
