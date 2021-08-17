@@ -1,4 +1,18 @@
 releases = {
+  "longhorn" = {
+    repository       = "https://charts.longhorn.io"
+    chart            = "longhorn"
+    namespace        = "longhorn-system"
+    create_namespace = true
+    values           = []
+  }
+  "prometheus" = {
+    repository       = "https://prometheus-community.github.io/helm-charts"
+    chart            = "prometheus"
+    namespace        = "prometheus"
+    create_namespace = true
+    values           = []
+  }
   "metallb" = {
     repository       = "https://metallb.github.io/metallb"
     chart            = "metallb"
@@ -10,13 +24,6 @@ releases = {
     repository       = "https://kubernetes.github.io/ingress-nginx"
     chart            = "ingress-nginx"
     namespace        = "ingress-nginx"
-    create_namespace = true
-    values           = []
-  }
-  "longhorn" = {
-    repository       = "https://charts.longhorn.io"
-    chart            = "longhorn"
-    namespace        = "longhorn-system"
     create_namespace = true
     values           = []
   }
@@ -33,13 +40,6 @@ releases = {
     namespace        = "cert-manager"
     create_namespace = true
     values           = ["helm/cert-manager/values.yml"]
-  }
-  "prometheus" = {
-    repository       = "https://prometheus-community.github.io/helm-charts"
-    chart            = "prometheus"
-    namespace        = "prometheus"
-    create_namespace = true
-    values           = []
   }
   "kubernetes-dashboard" = {
     repository       = "https://kubernetes.github.io/dashboard"
@@ -65,14 +65,14 @@ releases = {
   "wordpress" = {
     repository       = "https://charts.bitnami.com/bitnami"
     chart            = "wordpress"
-    namespace        = "wordpress"
+    namespace        = "apps"
     create_namespace = true
     values           = ["helm/wordpress/values.yml"]
   }
   "ghost" = {
     repository       = "https://charts.bitnami.com/bitnami"
     chart            = "ghost"
-    namespace        = "ghost"
+    namespace        = "apps"
     create_namespace = true
     values           = ["helm/ghost/values.yml"]
   }
