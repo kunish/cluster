@@ -62,6 +62,13 @@ releases = {
     create_namespace = true
     values           = ["helm/rancher/values.yml"]
   }
+  "wordpress" = {
+    repository       = "https://charts.bitnami.com/bitnami"
+    chart            = "wordpress"
+    namespace        = "wordpress"
+    create_namespace = true
+    values           = ["helm/wordpress/values.yml"]
+  }
   "ghost" = {
     repository       = "https://charts.bitnami.com/bitnami"
     chart            = "ghost"
