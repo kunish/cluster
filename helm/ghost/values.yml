@@ -1,0 +1,8 @@
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  hostname: ghost.cluster.kuin.sh
+  tls: true
+  selfSigned: true

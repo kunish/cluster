@@ -41,6 +41,13 @@ releases = {
     create_namespace = true
     values           = []
   }
+  "kubernetes-dashboard" = {
+    repository       = "https://kubernetes.github.io/dashboard"
+    chart            = "kubernetes-dashboard"
+    namespace        = "kubernetes-dashboard"
+    create_namespace = true
+    values           = ["helm/kubernetes-dashboard/values.yml"]
+  }
   "argo-cd" = {
     repository       = "https://argoproj.github.io/argo-helm"
     chart            = "argo-cd"
@@ -54,5 +61,12 @@ releases = {
     namespace        = "cattle-system"
     create_namespace = true
     values           = ["helm/rancher/values.yml"]
+  }
+  "ghost" = {
+    repository       = "https://charts.bitnami.com/bitnami"
+    chart            = "ghost"
+    namespace        = "ghost"
+    create_namespace = true
+    values           = ["helm/ghost/values.yml"]
   }
 }
