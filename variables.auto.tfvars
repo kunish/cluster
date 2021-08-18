@@ -62,6 +62,13 @@ releases = {
     create_namespace = true
     values           = ["helm/rancher/values.yml"]
   }
+  "gitlab" = {
+    repository       = "https://charts.gitlab.io"
+    chart            = "gitlab"
+    namespace        = "apps"
+    create_namespace = true
+    values           = ["helm/gitlab/values.yml"]
+  }
   "wordpress" = {
     repository       = "https://charts.bitnami.com/bitnami"
     chart            = "wordpress"

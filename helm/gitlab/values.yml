@@ -3,5 +3,9 @@ global:
     domain: cluster.kuin.sh
   ingress:
     configureCertmanager: false
+
+gitlab-runner:
+  install: false
+
 certmanager:
   install: false
