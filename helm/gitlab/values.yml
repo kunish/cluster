@@ -9,3 +9,6 @@ gitlab-runner:
 
 certmanager:
   install: false
+
+prometheus:
+  install: false

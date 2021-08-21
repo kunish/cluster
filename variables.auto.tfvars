@@ -41,20 +41,6 @@ releases = {
     create_namespace = true
     values           = ["helm/cert-manager/values.yml"]
   }
-  "kubernetes-dashboard" = {
-    repository       = "https://kubernetes.github.io/dashboard"
-    chart            = "kubernetes-dashboard"
-    namespace        = "kubernetes-dashboard"
-    create_namespace = true
-    values           = ["helm/kubernetes-dashboard/values.yml"]
-  }
-  "argo-cd" = {
-    repository       = "https://argoproj.github.io/argo-helm"
-    chart            = "argo-cd"
-    namespace        = "argo-cd"
-    create_namespace = true
-    values           = ["helm/argo-cd/values.yml"]
-  }
   "rancher" = {
     repository       = "https://releases.rancher.com/server-charts/latest"
     chart            = "rancher"
@@ -62,12 +48,12 @@ releases = {
     create_namespace = true
     values           = ["helm/rancher/values.yml"]
   }
-  "gitlab" = {
-    repository       = "https://charts.gitlab.io"
-    chart            = "gitlab"
+  "argo-cd" = {
+    repository       = "https://argoproj.github.io/argo-helm"
+    chart            = "argo-cd"
     namespace        = "apps"
     create_namespace = true
-    values           = ["helm/gitlab/values.yml"]
+    values           = ["helm/argo-cd/values.yml"]
   }
   "wordpress" = {
     repository       = "https://charts.bitnami.com/bitnami"
