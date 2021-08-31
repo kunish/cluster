@@ -48,25 +48,4 @@ releases = {
     create_namespace = true
     values           = ["helm/rancher/values.yml"]
   }
-  "argo-cd" = {
-    repository       = "https://argoproj.github.io/argo-helm"
-    chart            = "argo-cd"
-    namespace        = "apps"
-    create_namespace = true
-    values           = ["helm/argo-cd/values.yml"]
-  }
-  "wordpress" = {
-    repository       = "https://charts.bitnami.com/bitnami"
-    chart            = "wordpress"
-    namespace        = "apps"
-    create_namespace = true
-    values           = ["helm/wordpress/values.yml"]
-  }
-  "ghost" = {
-    repository       = "https://charts.bitnami.com/bitnami"
-    chart            = "ghost"
-    namespace        = "apps"
-    create_namespace = true
-    values           = ["helm/ghost/values.yml"]
-  }
 }
