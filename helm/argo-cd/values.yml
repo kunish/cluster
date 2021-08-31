@@ -1,7 +1,0 @@
-server:
-  extraArgs:
-    - --insecure
-  ingress:
-    enabled: true
-    hosts:
-      - argo-cd.cluster.kuin.sh

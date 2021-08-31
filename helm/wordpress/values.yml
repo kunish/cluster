@@ -1,8 +1,0 @@
-service:
-  type: ClusterIP
-
-ingress:
-  enabled: true
-  hostname: wordpress.cluster.kuin.sh
-  tls: true
-  selfSigned: true
