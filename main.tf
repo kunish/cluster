@@ -28,18 +28,6 @@ resource "helm_release" "longhorn" {
   dependency_update = true
 }
 
-resource "helm_release" "prometheus" {
-  name              = "prometheus"
-  repository        = "https://prometheus-community.github.io/helm-charts"
-  chart             = "prometheus"
-  namespace         = "prometheus"
-  create_namespace  = true
-  dependency_update = true
-  depends_on = [
-    helm_release.longhorn
-  ]
-}
-
 resource "helm_release" "metallb" {
   name              = "metallb"
   repository        = "https://metallb.github.io/metallb"
