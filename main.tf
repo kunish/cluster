@@ -19,13 +19,26 @@ provider "helm" {
   }
 }
 
-resource "helm_release" "longhorn" {
-  name              = "longhorn"
-  repository        = "https://charts.longhorn.io"
-  chart             = "longhorn"
-  namespace         = "longhorn-system"
+resource "helm_release" "nfs-subdir-external-provisioner" {
+  name              = "nfs-subdir-external-provisioner"
+  repository        = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner"
+  chart             = "nfs-subdir-external-provisioner"
+  namespace         = "nfs-subdir-external-provisioner"
   create_namespace  = true
   dependency_update = true
+  values            = [file("helm/nfs-subdir-external-provisioner/values.yml")]
+}
+
+resource "helm_release" "prometheus" {
+  name              = "prometheus"
+  repository        = "https://prometheus-community.github.io/helm-charts"
+  chart             = "prometheus"
+  namespace         = "prometheus"
+  create_namespace  = true
+  dependency_update = true
+  depends_on = [
+    helm_release.nfs-subdir-external-provisioner
+  ]
 }
 
 resource "helm_release" "metallb" {
@@ -69,6 +82,6 @@ resource "helm_release" "cert-manager" {
   dependency_update = true
   values            = [file("helm/cert-manager/values.yml")]
   depends_on = [
-    helm_release.longhorn
+    helm_release.nfs-subdir-external-provisioner
   ]
 }

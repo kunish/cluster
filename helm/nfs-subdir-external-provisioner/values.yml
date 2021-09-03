@@ -1,0 +1,5 @@
+nfs:
+  server: synology.kuin.sh
+  path: /volume1/shared/kubernetes
+storageClass:
+  defaultClass: true
