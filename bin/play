@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+command -v k0sctl > /dev/null || (
+    echo "k0sctl not found, installing..." && \
+    wget -Oq /usr/local/bin/k0sctl https://github.com/k0sproject/k0sctl/releases/latest/download/k0sctl-darwin-x64 && \
+    echo "k0sctl downloaded"
+    )
+k0sctl apply --disable-telemetry
