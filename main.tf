@@ -58,6 +58,7 @@ resource "helm_release" "ingress-nginx" {
   namespace         = "ingress-nginx"
   create_namespace  = true
   dependency_update = true
+  values            = [file("helm/ingress-nginx/values.yml")]
   depends_on = [
     helm_release.metallb
   ]
@@ -83,5 +84,19 @@ resource "helm_release" "cert-manager" {
   values            = [file("helm/cert-manager/values.yml")]
   depends_on = [
     helm_release.nfs-subdir-external-provisioner
+  ]
+}
+
+resource "helm_release" "argo-cd" {
+  name              = "argo-cd"
+  repository        = "https://argoproj.github.io/argo-helm"
+  chart             = "argo-cd"
+  namespace         = "argo-cd"
+  create_namespace  = true
+  dependency_update = true
+  values            = [file("helm/argo-cd/values.yml")]
+  depends_on = [
+    helm_release.nfs-subdir-external-provisioner,
+    helm_release.ingress-nginx,
   ]
 }
