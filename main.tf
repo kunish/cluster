@@ -99,12 +99,3 @@ resource "helm_release" "argo-cd" {
     helm_release.ingress-nginx,
   ]
 }
-
-resource "helm_release" "keel" {
-  name              = "keel"
-  repository        = "https://charts.keel.sh"
-  chart             = "keel"
-  namespace         = "keel"
-  create_namespace  = true
-  dependency_update = true
-}
