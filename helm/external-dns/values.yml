@@ -1,4 +1,4 @@
 provider: pdns
 pdns:
   apiUrl: http://10.10.0.13
-  secretName: pdns-apikey
+  secretName: pdns-api-key
