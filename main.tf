@@ -87,6 +87,15 @@ resource "helm_release" "cert-manager" {
   ]
 }
 
+resource "helm_release" "sealed-secrets" {
+  name              = "sealed-secrets"
+  repository        = "https://bitnami-labs.github.io/sealed-secrets"
+  chart             = "sealed-secrets"
+  namespace         = "sealed-secrets"
+  create_namespace  = true
+  dependency_update = true
+}
+
 resource "helm_release" "argo-cd" {
   name              = "argo-cd"
   repository        = "https://argoproj.github.io/argo-helm"
