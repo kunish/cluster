@@ -91,7 +91,7 @@ resource "helm_release" "sealed-secrets" {
   name              = "sealed-secrets"
   repository        = "https://bitnami-labs.github.io/sealed-secrets"
   chart             = "sealed-secrets"
-  namespace         = "sealed-secrets"
+  namespace         = "kube-system"
   create_namespace  = true
   dependency_update = true
 }
