@@ -47,7 +47,7 @@ spec:
       role: worker
 
   k0s:
-    version: "v1.22.2+k0s.2"
+    version: "v1.22.3+k0s.0"
     config:
       spec:
         telemetry:
