@@ -12,14 +12,3 @@ spec:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
     group: cert-manager.io
-
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: ca-issuer
-  namespace: gitlab
-
-spec:
-  ca:
-    secretName: selfsigned-ca
