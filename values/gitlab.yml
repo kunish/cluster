@@ -31,7 +31,7 @@ global:
   time_zone: Asia/Shanghai
 
   initialRootPassword:
-    secret: gitlab-root-password
+    secret: gitlab-gitlab-initial-root-password
     key: password
 
 certmanager:
@@ -42,5 +42,4 @@ nginx-ingress:
   enabled: false
 
 gitlab-runner:
-  runners:
-    privileged: true
+  install: false
