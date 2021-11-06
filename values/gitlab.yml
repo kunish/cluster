@@ -19,20 +19,16 @@ global:
   ingress:
     enabled: true
     class: nginx
+    path: /
+    pathType: Prefix
     configureCertmanager: false
     tls:
       secretName: selfsigned-ca-secret
-    path: /
-    pathType: Prefix
 
   pages:
     enabled: true
 
   time_zone: Asia/Shanghai
-
-  initialRootPassword:
-    secret: gitlab-gitlab-initial-root-password
-    key: password
 
 certmanager:
   install: false
@@ -42,4 +38,5 @@ nginx-ingress:
   enabled: false
 
 gitlab-runner:
-  install: false
+  runners:
+    privileged: true
