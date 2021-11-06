@@ -37,9 +37,16 @@ resource "helm_release" "minio" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/minio.yml")]
-  depends_on = [
-    helm_release.nfs-subdir-external-provisioner
-  ]
+}
+
+resource "helm_release" "keycloak" {
+  name              = "keycloak"
+  repository        = "https://charts.bitnami.com/bitnami"
+  chart             = "keycloak"
+  namespace         = "keycloak"
+  create_namespace  = true
+  dependency_update = true
+  values            = [file("values/keycloak.yml")]
 }
 
 resource "helm_release" "prometheus" {
@@ -49,9 +56,6 @@ resource "helm_release" "prometheus" {
   namespace         = "prometheus"
   create_namespace  = true
   dependency_update = true
-  depends_on = [
-    helm_release.nfs-subdir-external-provisioner
-  ]
 }
 
 resource "helm_release" "metallb" {
@@ -72,9 +76,6 @@ resource "helm_release" "ingress-nginx" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/ingress-nginx.yml")]
-  depends_on = [
-    helm_release.metallb
-  ]
 }
 
 resource "helm_release" "external-dns" {
@@ -95,9 +96,6 @@ resource "helm_release" "cert-manager" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/cert-manager.yml")]
-  depends_on = [
-    helm_release.nfs-subdir-external-provisioner
-  ]
 }
 
 resource "helm_release" "sealed-secrets" {
@@ -117,9 +115,6 @@ resource "helm_release" "argo-cd" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/argo-cd.yml")]
-  depends_on = [
-    helm_release.ingress-nginx,
-  ]
 }
 
 resource "helm_release" "keel" {
