@@ -38,3 +38,6 @@ nginx-ingress:
 
 gitlab-runner:
   install: false
+
+migrations:
+  enabled: false
