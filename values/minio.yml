@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  hostname: minio.cluster.kuin.sh
+
+apiIngress:
+  enabled: true
+  hostname: minio-api.cluster.kuin.sh

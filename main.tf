@@ -29,6 +29,19 @@ resource "helm_release" "nfs-subdir-external-provisioner" {
   values            = [file("values/nfs-subdir-external-provisioner.yml")]
 }
 
+resource "helm_release" "minio" {
+  name              = "minio"
+  repository        = "https://charts.bitnami.com/bitnami"
+  chart             = "minio"
+  namespace         = "minio"
+  create_namespace  = true
+  dependency_update = true
+  values            = [file("values/minio.yml")]
+  depends_on = [
+    helm_release.nfs-subdir-external-provisioner
+  ]
+}
+
 resource "helm_release" "prometheus" {
   name              = "prometheus"
   repository        = "https://prometheus-community.github.io/helm-charts"
