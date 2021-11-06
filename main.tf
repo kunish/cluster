@@ -125,4 +125,10 @@ resource "helm_release" "gitlab" {
   namespace         = "gitlab"
   create_namespace  = true
   dependency_update = true
+  values            = [file("values/gitlab.yml")]
+  depends_on = [
+    helm_release.cert-manager,
+    helm_release.ingress-nginx,
+    helm_release.nfs-subdir-external-provisioner,
+  ]
 }
