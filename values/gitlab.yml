@@ -32,11 +32,9 @@ global:
 
 certmanager:
   install: false
-  installCRDs: false
 
 nginx-ingress:
   enabled: false
 
 gitlab-runner:
-  runners:
-    privileged: true
+  install: false
