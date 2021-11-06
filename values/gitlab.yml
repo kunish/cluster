@@ -16,7 +16,6 @@ global:
 
   ingress:
     enabled: true
-    class: nginx
     path: /
     pathType: Prefix
     configureCertmanager: false
@@ -34,10 +33,10 @@ global:
 certmanager:
   install: false
 
-nginx-ingress:
-  enabled: false
-
 gitlab-runner:
+  install: false
+
+prometheus:
   install: false
 
 migrations:
