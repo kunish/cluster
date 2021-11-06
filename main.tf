@@ -26,7 +26,7 @@ resource "helm_release" "nfs-subdir-external-provisioner" {
   namespace         = "nfs-subdir-external-provisioner"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/nfs-subdir-external-provisioner/values.yml")]
+  values            = [file("values/nfs-subdir-external-provisioner.yml")]
 }
 
 resource "helm_release" "prometheus" {
@@ -48,7 +48,7 @@ resource "helm_release" "metallb" {
   namespace         = "metallb-system"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/metallb/values.yml")]
+  values            = [file("values/metallb.yml")]
 }
 
 resource "helm_release" "ingress-nginx" {
@@ -58,7 +58,7 @@ resource "helm_release" "ingress-nginx" {
   namespace         = "ingress-nginx"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/ingress-nginx/values.yml")]
+  values            = [file("values/ingress-nginx.yml")]
   depends_on = [
     helm_release.metallb
   ]
@@ -71,7 +71,7 @@ resource "helm_release" "external-dns" {
   namespace         = "external-dns"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/external-dns/values.yml")]
+  values            = [file("values/external-dns.yml")]
 }
 
 resource "helm_release" "cert-manager" {
@@ -81,7 +81,7 @@ resource "helm_release" "cert-manager" {
   namespace         = "cert-manager"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/cert-manager/values.yml")]
+  values            = [file("values/cert-manager.yml")]
   depends_on = [
     helm_release.nfs-subdir-external-provisioner
   ]
@@ -103,7 +103,7 @@ resource "helm_release" "argo-cd" {
   namespace         = "argo-cd"
   create_namespace  = true
   dependency_update = true
-  values            = [file("helm/argo-cd/values.yml")]
+  values            = [file("values/argo-cd.yml")]
   depends_on = [
     helm_release.ingress-nginx,
   ]
@@ -114,6 +114,15 @@ resource "helm_release" "keel" {
   repository        = "https://charts.keel.sh"
   chart             = "keel"
   namespace         = "kube-system"
+  create_namespace  = true
+  dependency_update = true
+}
+
+resource "helm_release" "gitlab" {
+  name              = "gitlab"
+  repository        = "https://charts.gitlab.io"
+  chart             = "gitlab"
+  namespace         = "gitlab"
   create_namespace  = true
   dependency_update = true
 }
