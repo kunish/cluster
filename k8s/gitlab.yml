@@ -6,8 +6,8 @@ metadata:
 
 spec:
   isCA: true
-  commonName: selfsigned-ca
-  secretName: selfsigned-ca-secret
+  commonName: gitlab-selfsigned-ca
+  secretName: selfsigned-ca
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
@@ -22,4 +22,4 @@ metadata:
 
 spec:
   ca:
-    secretName: selfsigned-ca-secret
+    secretName: selfsigned-ca
