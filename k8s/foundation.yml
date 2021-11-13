@@ -59,6 +59,14 @@ spec:
                 port:
                   number: 8080
 
+          - path: /api/webhook/littlelink
+            pathType: Prefix
+            backend:
+              service:
+                name: el-webhook-littlelink
+                port:
+                  number: 8080
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
