@@ -26,20 +26,6 @@ spec:
   selfSigned: {}
 
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: keel-service
-  namespace: kube-system
-
-spec:
-  selector:
-    app: keel
-  ports:
-    - protocol: TCP
-      port: 9300
-
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -66,23 +52,3 @@ spec:
                 name: el-webhook-littlelink
                 port:
                   number: 8080
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: keel-ingress
-  namespace: kube-system
-
-spec:
-  rules:
-    - host: keel.cluster.kuin.sh
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: keel-service
-                port:
-                  number: 9300
