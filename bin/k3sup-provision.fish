@@ -1,3 +1,5 @@
+#! /usr/bin/env fish
+
 set -x ssh_user shikun
 set -x ssh_key $HOME/.ssh/home_id_rsa
 set -x server_ip 10.10.0.50
