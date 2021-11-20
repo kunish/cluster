@@ -3,19 +3,25 @@ global:
 
   hosts:
     domain: gitlab.cluster.kuin.sh
+
     gitlab:
       name: gitlab.cluster.kuin.sh
+
     registry:
       name: gitlab-registry.cluster.kuin.sh
+
     pages:
       name: gitlab-pages.cluster.kuin.sh
+
     minio:
       name: gitlab-minio.cluster.kuin.sh
+
     kas:
       name: gitlab-kas.cluster.kuin.sh
 
   ingress:
     enabled: true
+    class: nginx
     path: /
     pathType: Prefix
     configureCertmanager: false
@@ -29,6 +35,9 @@ global:
     enabled: false
 
   time_zone: Asia/Shanghai
+
+nginx-ingress:
+  enabled: false
 
 certmanager:
   install: false
