@@ -26,7 +26,7 @@ global:
     pathType: Prefix
     configureCertmanager: false
     tls:
-      secretName: selfsigned-ca-secret
+      secretName: selfsigned-ca
 
   pages:
     enabled: true
