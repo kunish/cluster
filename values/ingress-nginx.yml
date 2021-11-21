@@ -7,3 +7,6 @@ controller:
       annotations:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
+
+tcp:
+  22: gitlab/gitlab-gitlab-shell:22
