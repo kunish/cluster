@@ -7,6 +7,8 @@ controller:
       annotations:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
+  config:
+    proxy-body-size: 2g
 
 tcp:
   22: gitlab/gitlab-gitlab-shell:22
