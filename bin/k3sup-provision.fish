@@ -10,7 +10,7 @@ k3sup install \
     --ip $server_ip --user $ssh_user --ssh-key $ssh_key \
     --merge --local-path $HOME/.kube/kubeconfig.yml --context k3s \
     --k3s-channel latest \
-    --k3s-extra-args '--disable servicelb traefik local-storage' \
+    --k3s-extra-args '--disable servicelb,traefik,local-storage' \
     --print-command
 
 for host in $agent_list
