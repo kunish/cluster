@@ -39,16 +39,6 @@ resource "helm_release" "minio" {
   values            = [file("values/minio.yml")]
 }
 
-resource "helm_release" "keycloak" {
-  name              = "keycloak"
-  repository        = "https://charts.bitnami.com/bitnami"
-  chart             = "keycloak"
-  namespace         = "keycloak"
-  create_namespace  = true
-  dependency_update = true
-  values            = [file("values/keycloak.yml")]
-}
-
 resource "helm_release" "prometheus" {
   name              = "prometheus"
   repository        = "https://prometheus-community.github.io/helm-charts"
@@ -115,13 +105,4 @@ resource "helm_release" "argo-cd" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/argo-cd.yml")]
-}
-
-resource "helm_release" "keel" {
-  name              = "keel"
-  repository        = "https://charts.keel.sh"
-  chart             = "keel"
-  namespace         = "kube-system"
-  create_namespace  = true
-  dependency_update = true
 }
