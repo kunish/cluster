@@ -1,0 +1,8 @@
+cluster:
+  hosts:
+    10.10.10.10:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    10.10.10.[20:22]:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
