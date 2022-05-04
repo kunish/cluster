@@ -1,0 +1,34 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: k0s-cluster
+
+spec:
+  hosts:
+    - ssh:
+        address: 10.10.10.10
+        user: shikun
+        keyPath: ~/.ssh/home_id_rsa
+      role: controller
+    - ssh:
+        address: 10.10.10.20
+        user: shikun
+        keyPath: ~/.ssh/home_id_rsa
+      role: worker
+    - ssh:
+        address: 10.10.10.21
+        user: shikun
+        keyPath: ~/.ssh/home_id_rsa
+      role: worker
+    - ssh:
+        address: 10.10.10.22
+        user: shikun
+        keyPath: ~/.ssh/home_id_rsa
+      role: worker
+
+  k0s:
+    version: "v1.23.6+k0s.0"
+    config:
+      spec:
+        telemetry:
+          enabled: false
