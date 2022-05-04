@@ -1,6 +1,6 @@
 #! /usr/bin/env fish
 
-set -x ssh_user shikun
+set -x ssh_user root
 set -x ssh_key $HOME/.ssh/home_id_rsa
 set -x server_ip 10.10.0.30
 set -x agent_list 10.10.0.31 10.10.0.32 10.10.0.33
