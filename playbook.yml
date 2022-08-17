@@ -14,5 +14,4 @@
       ansible.builtin.package:
         name:
           - nfs-common
-          - qemu-guest-agent
         state: latest
