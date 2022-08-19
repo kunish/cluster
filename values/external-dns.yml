@@ -1,4 +1,4 @@
 provider: pdns
 pdns:
-  apiUrl: http://10.10.0.13
+  apiUrl: http://powerdns.kuin.sh
   secretName: pdns-api-key

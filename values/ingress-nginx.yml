@@ -9,3 +9,8 @@ controller:
         prometheus.io/scrape: "true"
   config:
     proxy-body-size: 2g
+  extraArgs:
+    default-ssl-certificate: "cert-manager/cluster-kuin-sh-tls"
+
+tcp:
+  22: gitea/gitea-ssh:22

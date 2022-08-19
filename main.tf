@@ -15,7 +15,7 @@ terraform {
 
 provider "helm" {
   kubernetes {
-    config_path = "~/.kube/kubeconfig.yml"
+    config_path = "~/.kube/config"
   }
 }
 
@@ -45,7 +45,6 @@ resource "helm_release" "metallb" {
   namespace         = "metallb-system"
   create_namespace  = true
   dependency_update = true
-  values            = [file("values/metallb.yml")]
 }
 
 resource "helm_release" "ingress-nginx" {
@@ -76,6 +75,15 @@ resource "helm_release" "cert-manager" {
   create_namespace  = true
   dependency_update = true
   values            = [file("values/cert-manager.yml")]
+}
+
+resource "helm_release" "cert-manager-trust" {
+  name              = "cert-manager-trust"
+  repository        = "https://charts.jetstack.io"
+  chart             = "cert-manager-trust"
+  namespace         = "cert-manager"
+  create_namespace  = true
+  dependency_update = true
 }
 
 resource "helm_release" "sealed-secrets" {
