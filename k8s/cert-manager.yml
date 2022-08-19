@@ -13,7 +13,7 @@ metadata:
   namespace: cert-manager
 spec:
   isCA: true
-  commonName: my-selfsigned-ca
+  commonName: selfsigned-ca
   secretName: root-secret
   privateKey:
     algorithm: ECDSA
