@@ -1,3 +1,6 @@
+image:
+  tag: latest
+
 ingress:
   enabled: true
   hosts:
@@ -15,7 +18,7 @@ extraVolumes:
 extraVolumeMounts:
   - name: ca
     subPath: root-certs.pem
-    mountPath: /etc/ssl/certs/custom-cert.pem
+    mountPath: /etc/ssl/certs/custom-ca.pem
 
 env:
   DRONE_SERVER_HOST: "drone.cluster.kuin.sh"
@@ -25,3 +28,4 @@ env:
   DRONE_GITEA_CLIENT_ID: c3991d66-170c-4ad1-9bd4-932107298431
   DRONE_GITEA_CLIENT_SECRET: 6wM6V5g9bW5HUqg5sOrMSLlDZtlVtpdGs2dH061fC6HK
   DRONE_GITEA_SERVER: https://gitea.cluster.kuin.sh
+  DRONE_GITEA_SKIP_VERIFY: true

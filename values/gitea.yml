@@ -1,8 +1,17 @@
 ingress:
   enabled: true
-  tls: []
   hosts:
-    - gitea.cluster.kuin.sh
+    - host: gitea.cluster.kuin.sh
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
 config:
   repository:
     DEFAULT_BRANCH: main
+    ENABLE_PUSH_CREATE_USER: true
+    ENABLE_PUSH_CREATE_ORG: true
+  webhook:
+    ALLOWED_HOST_LIST: "*"
+    SKIP_TLS_VERIFY: true

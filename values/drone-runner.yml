@@ -1,0 +1,13 @@
+image:
+  tag: latest
+
+rbac:
+  buildNamespaces:
+    - drone
+
+env:
+  DRONE_RPC_SECRET: "123456"
+  DRONE_RPC_HOST: drone.cluster.kuin.sh
+  DRONE_RPC_PROTO: https
+  DRONE_RPC_SKIP_VERIFY: true
+  DRONE_NAMESPACE_DEFAULT: drone
