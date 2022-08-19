@@ -1,0 +1,8 @@
+ingress:
+  enabled: true
+  tls: []
+  hosts:
+    - gitea.cluster.kuin.sh
+config:
+  repository:
+    DEFAULT_BRANCH: main

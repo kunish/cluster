@@ -1,0 +1,29 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: drone.cluster.kuin.sh
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+extraVolumes:
+  - name: ca
+    configMap:
+      name: cluster-kuin-sh-bundle
+
+extraVolumeMounts:
+  - name: ca
+    subPath: root-certs.pem
+    mountPath: /etc/ssl/certs/custom-cert.pem
+
+env:
+  DRONE_SERVER_HOST: "drone.cluster.kuin.sh"
+  DRONE_SERVER_PROTO: https
+
+  DRONE_RPC_SECRET: "123456"
+
+  DRONE_GIT_ALWAYS_AUTH: true
+  DRONE_GITEA_CLIENT_ID: c3991d66-170c-4ad1-9bd4-932107298431
+  DRONE_GITEA_CLIENT_SECRET: 6wM6V5g9bW5HUqg5sOrMSLlDZtlVtpdGs2dH061fC6HK
+  DRONE_GITEA_SERVER: https://gitea.cluster.kuin.sh
